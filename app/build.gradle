@@ -3,6 +3,9 @@ plugins {
     id 'kotlin-android'
 }
 
+apply plugin: 'com.android.application'
+apply plugin: 'org.greenrobot.greendao'
+
 android {
     compileSdkVersion 30
     buildToolsVersion "30.0.3"
@@ -32,9 +35,6 @@ android {
     }
 }
 
-apply plugin: 'com.android.application'
-apply plugin: 'org.greenrobot.greendao' // apply plugin
-
 dependencies {
 
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
@@ -42,10 +42,12 @@ dependencies {
     implementation 'androidx.appcompat:appcompat:1.2.0'
     implementation 'com.google.android.material:material:1.2.1'
     implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
+    implementation 'org.greenrobot:greendao:3.3.0'
+
+
     testImplementation 'junit:junit:4.13.1'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
-    implementation 'org.greenrobot:greendao:3.3.0'
 
     def lottieVersion = "3.6.0"
     implementation "com.airbnb.android:lottie:$lottieVersion"
