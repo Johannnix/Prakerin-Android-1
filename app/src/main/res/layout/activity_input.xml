@@ -4,24 +4,29 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".InputActivity"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:layout_gravity="center"
+    tools:context=".InputActivity">
+
     <EditText
         android:id="@+id/name"
-        android:layout_width="match_parent"
+        android:layout_width="300dp"
+        android:layout_gravity="center"
         android:layout_height="wrap_content"
-        android:inputType="text"
-        />
+        android:inputType="text" />
+
     <EditText
         android:id="@+id/address"
-        android:layout_width="match_parent"
+        android:layout_width="300dp"
+        android:layout_gravity="center"
         android:layout_height="wrap_content"
-        android:inputType="text"
-        />
+        android:inputType="text" />
+
     <Button
         android:id="@+id/submit"
-        android:layout_width="match_parent"
+        android:layout_width="250dp"
         android:layout_height="wrap_content"
-        android:text="submit"/>
+        android:layout_gravity="center"
+        android:text="submit" />
 
 </LinearLayout>

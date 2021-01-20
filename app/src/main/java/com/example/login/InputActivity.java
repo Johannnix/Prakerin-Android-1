@@ -1,12 +1,12 @@
 package com.example.login;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+import androidx.appcompat.app.AppCompatActivity;
 
 public class InputActivity extends AppCompatActivity {
 
@@ -27,15 +27,14 @@ public class InputActivity extends AppCompatActivity {
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //create new object
                 User user=new User();
-                //set value to object attribute
                 user.setAddress(addressText.getText().toString().trim());
                 user.setName(nameText.getText().toString().trim());
-                //insert data to database
                 repository.addData(user);
 
-                Toast.makeText(InputActivity.this,"Add user success", Toast.LENGTH_LONG).show();
+                Log.e("size",String.valueOf(addressText.getText().toString().trim())+nameText.getText().toString().trim());
+
+                Toast.makeText(InputActivity.this,"Add user success",Toast.LENGTH_LONG).show();
             }
         });
     }

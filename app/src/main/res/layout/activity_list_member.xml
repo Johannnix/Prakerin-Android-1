@@ -6,15 +6,19 @@
     android:layout_height="match_parent"
     tools:context=".ListMember"
     android:orientation="vertical">
+
     <Button
         android:id="@+id/inputButton"
-        android:layout_width="match_parent"
+        android:layout_width="250dp"
         android:layout_height="wrap_content"
-        android:text="Input data"/>
+        android:layout_gravity="center"
+        android:layout_margin="16dp"
+        android:text="Input data" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/listUser"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent"
+        android:paddingLeft="32dp"/>
 
 </LinearLayout>

@@ -32,13 +32,6 @@ public class ListMember extends AppCompatActivity {
 
         list = new ArrayList<>();
 
-        adapter = new MyAdapter(list, this);
-
-        listView.setLayoutManager(new LinearLayoutManager(this));
-        listView.setHasFixedSize(true);
-        listView.setItemAnimator(new DefaultItemAnimator());
-        listView.setAdapter(adapter);
-
         input.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -55,6 +48,14 @@ public class ListMember extends AppCompatActivity {
 
         //get data user from database
         list.addAll(repository.getAllData());
+
+        adapter = new MyAdapter(list, this);
+
+        listView.setLayoutManager(new LinearLayoutManager(this));
+        listView.setHasFixedSize(true);
+        listView.setItemAnimator(new DefaultItemAnimator());
+        listView.setAdapter(adapter);
+
         //renew list
         adapter.notifyDataSetChanged();
 
