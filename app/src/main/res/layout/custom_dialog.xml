@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/bg"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:background="#00bfff"
+        android:orientation="vertical"
+        tools:ignore="MissingConstraints"></LinearLayout>
+
+    <EditText
+        android:id="@+id/txtInputName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:ems="10"
+        android:hint="Insert your name..."
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bg"
+        android:gravity="center_horizontal" />
+
+    <Button
+        android:id="@+id/btnInsertName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="OK"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtInputName"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/dialog"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="30dp"
+        android:gravity="center_vertical"
+        android:text="INSERT MEMBER"
+        android:textAlignment="center"
+        android:textColor="@android:color/white"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="RtlCompat" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
