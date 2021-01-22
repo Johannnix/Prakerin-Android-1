@@ -1,26 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".MainActivity">
-
-    <TextView
-        android:id="@+id/txtName"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Your name is..."
-        android:textAlignment="center"
-        android:textSize="18sp"
-        android:layout_gravity="center_horizontal"
-        android:gravity="center_horizontal" />
+    android:layout_height="wrap_content"
+    tools:context=".ListMember"
+    android:orientation="vertical">
 
     <Button
-        android:id="@+id/btnOpenDialog"
+        android:id="@+id/inputButton"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="16dp"
+        android:text="Input data" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/listUser"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="OPEN DIALOG" />
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:paddingBottom="20dp">
+
+    </androidx.recyclerview.widget.RecyclerView>
+
 </LinearLayout>
