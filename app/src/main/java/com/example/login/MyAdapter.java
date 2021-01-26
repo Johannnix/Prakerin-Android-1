@@ -14,16 +14,19 @@ import java.util.List;
 public class MyAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     List<User> list;
     Context context;
+
     public MyAdapter(List<User> list, Context context){
         this.list=list;
         this.context=context;
     }
+
     @NonNull
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         View view= LayoutInflater.from(context).inflate(R.layout.item,viewGroup,false);
         return new MyViewHolder(view);
     }
+
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder viewHolder, int i) {
         MyViewHolder item=(MyViewHolder) viewHolder;
@@ -33,6 +36,8 @@ public class MyAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
         Log.e("name",user.getName());
     }
+
+
     @Override
     public int getItemCount() {
 

@@ -11,7 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
 public class InputActivity extends AppCompatActivity {
 
     Button submit;
-    EditText nameText,addressText,kelaminText,teleponText;
+    EditText nameText,addressText;
     Repository repository;
 
     @Override
@@ -21,8 +21,6 @@ public class InputActivity extends AppCompatActivity {
         submit=findViewById(R.id.submit);
         nameText=findViewById(R.id.name);
         addressText=findViewById(R.id.address);
-        kelaminText=findViewById(R.id.kelamin);
-        teleponText=findViewById(R.id.telepon);
 
         repository=new Repository();
 
@@ -32,8 +30,6 @@ public class InputActivity extends AppCompatActivity {
                 User user=new User();
                 user.setAddress(addressText.getText().toString().trim());
                 user.setName(nameText.getText().toString().trim());
-                user.setName(kelaminText.getText().toString().trim());
-                user.setName(teleponText.getText().toString().trim());
                 repository.addData(user);
 
                 Log.e("size",String.valueOf(addressText.getText().toString().trim())+nameText.getText().toString().trim());

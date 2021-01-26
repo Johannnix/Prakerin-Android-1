@@ -23,45 +23,43 @@ public class ListMember extends AppCompatActivity {
     MyAdapter adapter;
     List<User> list;
     Button input;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_list_member);
+        setContentView(R.layout.activity_main);
 
-        listView = findViewById(R.id.listUser);
-        input = findViewById(R.id.inputButton);
+        listView=findViewById(R.id.listUser);
+        input=findViewById(R.id.inputButton);
 
-        repository = new Repository();
+        repository=new Repository();
 
-        list = new ArrayList<>();
+        list=new ArrayList<>();
 
-        input.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(ListMember.this, InputActivity.class);
-                startActivity(intent);
-            }
-        });
-    }
-
-    @Override
-    protected void onStart() {
-        super.onStart();
-        //clear previous data in list
-        list.clear();
-
-        //get data user from database
-        list.addAll(repository.getAllData());
-
-        adapter = new MyAdapter(list, this);
+        adapter=new MyAdapter(list,this);
 
         listView.setLayoutManager(new LinearLayoutManager(this));
         listView.setHasFixedSize(true);
         listView.setItemAnimator(new DefaultItemAnimator());
         listView.setAdapter(adapter);
 
-        //renew list
+        input.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(ListMember.this,InputActivity.class);
+                startActivity(intent);
+            }
+        });
+
+
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        list.clear();
+        list.addAll(repository.getAllData());
         adapter.notifyDataSetChanged();
+
+
     }
 }

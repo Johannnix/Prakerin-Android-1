@@ -14,21 +14,15 @@ public class User {
     private String name;
     @NotNull
     private String address;
-    @NotNull
-    private String kelamin;
-    @NotNull
-    private String telepon;
 
     public User() {
 
     }
-    @Generated(hash = 1688215093)
-    public User(Long id, @NotNull String name, @NotNull String address, @NotNull String kelamin, @NotNull String telepon) {
+    @Generated(hash = 99511649)
+    public User(Long id, @NotNull String name, @NotNull String address) {
         this.id = id;
         this.name = name;
         this.address = address;
-        this.kelamin = kelamin;
-        this.telepon = telepon;
     }
     public Long getId() {
         return this.id;
@@ -47,16 +41,6 @@ public class User {
     }
     public void setAddress(String address) {
         this.address = address;
-    }
-    public String getKelamin() {
-        return this.kelamin;
-    }
-    public void setKelamin(String kelamin) { this.kelamin = kelamin; }
-    public String getTelepon() {
-        return this.telepon;
-    }
-    public void setTelepon(String telepon) {
-        this.telepon = telepon;
     }
 
 }
