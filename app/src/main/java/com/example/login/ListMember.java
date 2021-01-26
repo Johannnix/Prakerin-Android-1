@@ -14,6 +14,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.airbnb.lottie.L;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -26,7 +28,7 @@ public class ListMember extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_list_member);
 
         listView=findViewById(R.id.listUser);
         input=findViewById(R.id.inputButton);
@@ -49,15 +51,17 @@ public class ListMember extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
-
     }
 
     @Override
     protected void onStart() {
         super.onStart();
+        //clear previous data in list
         list.clear();
+
+        //get data user from database
         list.addAll(repository.getAllData());
+        //renew list
         adapter.notifyDataSetChanged();
 
 

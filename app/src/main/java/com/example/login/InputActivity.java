@@ -27,12 +27,13 @@ public class InputActivity extends AppCompatActivity {
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                //create new object
                 User user=new User();
+                //set value to object attribute
                 user.setAddress(addressText.getText().toString().trim());
                 user.setName(nameText.getText().toString().trim());
+                //insert data to database
                 repository.addData(user);
-
-                Log.e("size",String.valueOf(addressText.getText().toString().trim())+nameText.getText().toString().trim());
 
                 Toast.makeText(InputActivity.this,"Add user success",Toast.LENGTH_LONG).show();
             }

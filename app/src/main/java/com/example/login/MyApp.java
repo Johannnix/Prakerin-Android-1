@@ -1,11 +1,6 @@
 package com.example.login;
 
 import android.app.Application;
-
-import org.greenrobot.greendao.database.Database;
-
-import android.app.Application;
-
 import org.greenrobot.greendao.database.Database;
 
 public class MyApp extends Application {

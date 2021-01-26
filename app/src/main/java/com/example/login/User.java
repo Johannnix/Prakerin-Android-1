@@ -15,14 +15,14 @@ public class User {
     @NotNull
     private String address;
 
-    public User() {
-
-    }
     @Generated(hash = 99511649)
     public User(Long id, @NotNull String name, @NotNull String address) {
         this.id = id;
         this.name = name;
         this.address = address;
+    }
+    @Generated(hash = 586692638)
+    public User() {
     }
     public Long getId() {
         return this.id;
@@ -42,5 +42,4 @@ public class User {
     public void setAddress(String address) {
         this.address = address;
     }
-
 }
