@@ -18,7 +18,7 @@ public class InputActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_input);
-        submit=findViewById(R.id.submit);
+        submit=findViewById(R.id.button_save);
         nameText=findViewById(R.id.name);
         addressText=findViewById(R.id.address);
 

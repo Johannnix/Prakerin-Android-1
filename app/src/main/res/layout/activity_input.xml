@@ -10,17 +10,19 @@
 
     <EditText
         android:id="@+id/name"
-        android:layout_width="300dp"
+        android:hint="Nama"
+        android:layout_width="match_parent"
         android:layout_gravity="center"
         android:layout_height="wrap_content"
-        android:inputType="text" />
+        android:inputType="textPersonName" />
 
     <EditText
         android:id="@+id/address"
-        android:layout_width="300dp"
+        android:layout_width="match_parent"
         android:layout_gravity="center"
         android:layout_height="wrap_content"
-        android:inputType="text" />
+        android:hint="Alamat"
+        android:inputType="text"/>
 
 <!--    <EditText-->
 <!--        android:id="@+id/kelamin"-->
@@ -36,11 +38,27 @@
 <!--        android:layout_gravity="center"-->
 <!--        android:inputType="text" />-->
 
-    <Button
-        android:id="@+id/submit"
-        android:layout_width="250dp"
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:text="submit" />
+        android:layout_margin="5dp"
+        android:padding="5dp">
+
+        <Button
+            android:id="@+id/button_cancel"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="cancel"/>
+
+        <Button
+            android:id="@+id/button_save"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="save"/>
+
+    </LinearLayout>
 
 </LinearLayout>

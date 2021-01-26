@@ -8,11 +8,14 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.DisplayMetrics;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.airbnb.lottie.L;
 
@@ -25,10 +28,22 @@ public class ListMember extends AppCompatActivity {
     MyAdapter adapter;
     List<User> list;
     Button input;
+
+    private Button showDialogButton;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list_member);
+
+        showDialogButton = (Button) findViewById(R.id.inputButton);
+        showDialogButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showCustomDialog();
+            }
+        });
+
 
         listView=findViewById(R.id.listUser);
         input=findViewById(R.id.inputButton);
@@ -44,13 +59,51 @@ public class ListMember extends AppCompatActivity {
         listView.setItemAnimator(new DefaultItemAnimator());
         listView.setAdapter(adapter);
 
-        input.setOnClickListener(new View.OnClickListener() {
+//        input.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent intent=new Intent(ListMember.this,InputActivity.class);
+//                startActivity(intent);
+//            }
+//        });
+    }
+
+    private void showCustomDialog() {
+        final Dialog dialog = new Dialog(this);
+        //Mengeset judul dialog
+        dialog.setTitle("Add person");
+
+        //Mengeset layout
+        dialog.setContentView(R.layout.activity_input);
+
+        //Membuat agar dialog tidak hilang saat di click di area luar dialog
+        dialog.setCanceledOnTouchOutside(false);
+
+        //Membuat dialog agar berukuran responsive
+        DisplayMetrics metrics = getResources().getDisplayMetrics();
+        int width = metrics.widthPixels;
+        dialog.getWindow().setLayout((6 * width) / 7, LinearLayout.LayoutParams.WRAP_CONTENT);
+
+        Button cancelButton = (Button) dialog.findViewById(R.id.button_cancel);
+        Button saveButton = (Button) dialog.findViewById(R.id.button_save);
+
+        saveButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                Intent intent=new Intent(ListMember.this,InputActivity.class);
-                startActivity(intent);
+            public void onClick(View v) {
+                Toast.makeText(ListMember.this, "Data saved", Toast.LENGTH_SHORT).show();
+                dialog.dismiss();
             }
         });
+
+        cancelButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+            }
+        });
+
+        //Menampilkan custom dialog
+        dialog.show();
     }
 
     @Override
