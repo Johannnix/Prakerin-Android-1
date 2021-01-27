@@ -5,10 +5,12 @@ import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
@@ -28,6 +30,7 @@ public class ListMember extends AppCompatActivity {
     MyAdapter adapter;
     List<User> list;
     Button input;
+    DaoSession daoSession;
 
     private Button showDialogButton;
 
@@ -44,7 +47,7 @@ public class ListMember extends AppCompatActivity {
             }
         });
 
-
+        daoSession = ((MyApp) getApplication()).getDaoSession();
         listView=findViewById(R.id.listUser);
         input=findViewById(R.id.inputButton);
 
@@ -59,14 +62,34 @@ public class ListMember extends AppCompatActivity {
         listView.setItemAnimator(new DefaultItemAnimator());
         listView.setAdapter(adapter);
 
-//        input.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
+        input.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
 //                Intent intent=new Intent(ListMember.this,InputActivity.class);
 //                startActivity(intent);
-//            }
-//        });
-    }
+
+                LayoutInflater inflater = getLayoutInflater();
+                View mView = LayoutInflater.from(ListMember.this).inflate(R.layout.activity_input,null);
+                AlertDialog builder = new AlertDialog.Builder(ListMember.this)
+                        .setView(mView).show();
+                Toast.makeText(getApplicationContext(),"Masukan Data",Toast.LENGTH_SHORT).show();
+                EditText nama = mView.findViewById(R.id.name);
+                EditText alamat = mView.findViewById(R.id.address);
+//                EditText telp = mView.findViewById(R.id.txtTelp);
+                Button btnSimpan = mView.findViewById(R.id.button_save);
+                btnSimpan.setOnClickListener(v -> {
+                    UserDao userDao = daoSession.getUserDao();
+                    User user = new User();
+                    user.setName(nama.getText().toString());
+                    user.setAddress(alamat.getText().toString());
+//                    user.setTelp(telp.getText().toString());
+                    userDao.insert(user);
+                    Toast.makeText(getApplicationContext(),"Berhasil",Toast.LENGTH_SHORT).show();
+                    builder.dismiss();
+                });
+                    }
+                });
+            }
 
     private void showCustomDialog() {
         final Dialog dialog = new Dialog(this);
