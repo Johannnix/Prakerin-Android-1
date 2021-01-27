@@ -4,9 +4,7 @@ import android.app.Application;
 import org.greenrobot.greendao.database.Database;
 
 public class MyApp extends Application {
-
     private DaoSession daoSession;
-
     private static MyApp mInstance;
 
     @Override

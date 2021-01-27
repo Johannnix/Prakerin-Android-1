@@ -73,16 +73,18 @@ public class ListMember extends AppCompatActivity {
                 AlertDialog builder = new AlertDialog.Builder(ListMember.this)
                         .setView(mView).show();
                 Toast.makeText(getApplicationContext(),"Masukan Data",Toast.LENGTH_SHORT).show();
-                EditText nama = mView.findViewById(R.id.name);
-                EditText alamat = mView.findViewById(R.id.address);
-//                EditText telp = mView.findViewById(R.id.txtTelp);
+                EditText name = mView.findViewById(R.id.name);
+                EditText address = mView.findViewById(R.id.address);
+                EditText kelamin = mView.findViewById(R.id.kelamin);
+                EditText telepon = mView.findViewById(R.id.telepon);
                 Button btnSimpan = mView.findViewById(R.id.button_save);
                 btnSimpan.setOnClickListener(v -> {
                     UserDao userDao = daoSession.getUserDao();
                     User user = new User();
-                    user.setName(nama.getText().toString());
-                    user.setAddress(alamat.getText().toString());
-//                    user.setTelp(telp.getText().toString());
+                    user.setName(name.getText().toString());
+                    user.setAddress(address.getText().toString());
+                    user.setKelamin(kelamin.getText().toString());
+                    user.setTelepon(telepon.getText().toString());
                     userDao.insert(user);
                     Toast.makeText(getApplicationContext(),"Berhasil",Toast.LENGTH_SHORT).show();
                     builder.dismiss();

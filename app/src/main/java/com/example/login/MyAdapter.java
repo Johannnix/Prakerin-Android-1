@@ -31,16 +31,12 @@ public class MyAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder viewHolder, int i) {
         MyViewHolder item=(MyViewHolder) viewHolder;
         User user=list.get(i);
-
         item.getName().setText(user.getName());
-
         Log.e("name",user.getName());
     }
 
-
     @Override
     public int getItemCount() {
-
         return list.size();
     }
 }

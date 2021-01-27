@@ -9,9 +9,8 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class InputActivity extends AppCompatActivity {
-
     Button submit;
-    EditText nameText,addressText;
+    EditText nameText,addressText,kelaminText,teleponText;
     Repository repository;
 
     @Override
@@ -21,6 +20,8 @@ public class InputActivity extends AppCompatActivity {
         submit=findViewById(R.id.button_save);
         nameText=findViewById(R.id.name);
         addressText=findViewById(R.id.address);
+        kelaminText=findViewById(R.id.kelamin);
+        teleponText=findViewById(R.id.telepon);
 
         repository=new Repository();
 
@@ -32,9 +33,12 @@ public class InputActivity extends AppCompatActivity {
                 //set value to object attribute
                 user.setAddress(addressText.getText().toString().trim());
                 user.setName(nameText.getText().toString().trim());
+                user.setTelepon(teleponText.getText().toString().trim());
+                user.setKelamin(kelaminText.getText().toString().trim());
                 //insert data to database
                 repository.addData(user);
 
+                Log.e("size", String.valueOf(addressText.getText().toString().trim()) + nameText.getText().toString().trim() + kelaminText.getText().toString().trim()+ teleponText.getText().toString().trim());
                 Toast.makeText(InputActivity.this,"Add user success",Toast.LENGTH_LONG).show();
             }
         });
