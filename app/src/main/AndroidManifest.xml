@@ -10,7 +10,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Login">
-        <activity android:name=".InputActivity"></activity>
+        <activity android:name=".UpdateBiodata"></activity>
+        <activity android:name=".LihatBiodata" />
+        <activity android:name=".InputActivity" />
         <activity android:name=".ListMember" />
         <activity android:name=".Welcome" />
         <activity android:name=".SplashScreen">
